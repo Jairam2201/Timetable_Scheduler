@@ -1,0 +1,114 @@
+/* Reset & base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #eef2f7;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container styling */
+.container {
+    background-color: #ffffff;
+    padding: 45px 35px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Form header */
+.signup-form h2 {
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Input groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #f7f9fc;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #28a745;
+    background-color: #eafaf1;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #28a745, #218838); /* Green gradient */
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #218838, #1e7e34); /* Darker green on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(33, 136, 56, 0.3);
+}
+
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 10px rgba(33, 136, 56, 0.2);
+}
+
+/* Login link */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #28a745; /* Green color */
+}
+
+.login-link a {
+    color: #28a745; /* Green color */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #218838; /* Darker green on hover */
+    text-decoration: underline;
+}
+
+.login-link a:active {
+    color: #1e7e34; /* Even darker green on active state */
+}

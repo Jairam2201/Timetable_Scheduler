@@ -1,0 +1,136 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #eef2f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    background-color: #ffffff;
+    padding: 45px 35px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Form Title */
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #f7f9fc;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #28a745;
+    background-color: #eafaf1;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+/* Login Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #28a745, #218838);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #218838, #1e7e34);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(33, 136, 56, 0.3);
+}
+
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 10px rgba(33, 136, 56, 0.2);
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #28a745;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #218838;
+    text-decoration: underline;
+}
+
+.forgot-password:active {
+    color: #155724;
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #28a745;
+}
+
+.register-link a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #218838;
+    text-decoration: underline;
+}
+
+.register-link a:active {
+    color: #155724;
+}
