@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work Date Selection</title>
+    <link rel="stylesheet" href="{% static 'edit.css' %}" />
+</head>
+<body>
+    <main class="container" role="main">
+        <!-- Date List Section -->
+        <section class="date-section" aria-labelledby="date-list-heading">
+            <h2 id="date-list-heading" class="visually-hidden">Scheduled Dates</h2>
+            {% for i in a %}
+                <div class="date">{{ i.date_field }}</div>
+            {% endfor %}
+        </section>
+
+        <!-- Date Selection Form -->
+        <section class="form-section" id="formSection" aria-labelledby="form-heading">
+            <h2 id="form-heading">Select a Date<span class="calendar-icon">&#128197;</span></h2>
+            <form 
+                {% if b %}action="del_date" 
+                {% elif c %}action="time_table" 
+                {% else %}action="../check" 
+                {% endif %} 
+                method="post"
+            >
+                {% csrf_token %}
+                <input type="date" name="work_date" required />
+                <button type="submit">
+                    {% if b %}Delete{% else %}Submit{% endif %}
+                </button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

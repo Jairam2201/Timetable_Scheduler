@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Time Table</title>
+  <link rel="stylesheet" href="{% static 'view.css' %}">
+</head>
+<body>
+    <table>
+      <tr>
+        {% for slot in slots|slice:":3" %}
+        <td>
+          <div class="time-text">{{ slot.time }}</div>
+          <div class="hi-message">{{ slot.message }}</div>
+        </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        {% for slot in slots|slice:"3:" %}
+        <td>
+          <div class="time-text">{{ slot.time }}</div>
+          <div class="hi-message">{{ slot.message }}</div>
+        </td>
+        {% endfor %}
+      </tr>
+    </table>
+  </body>
+  </html>
+
+
+  
