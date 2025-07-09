@@ -24,7 +24,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("register",signup,name="signup"),
+    path("",signup,name="signup"),
     path("user_signup",user_signup,name="user_signup"),
     path("login",login,name="login"),
     path("user_login",user_login,name="user_login"),
@@ -41,7 +41,7 @@ urlpatterns = [
     path("view",view,name="view"),
     path("password_reset",password_reset,name="password_reset"),
     path("forgot_password",forgot_password,name="forgot_password"),
-    path("",hii,name="hii"),
+    path("hello",hii,name="hii"),
 ]
 
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
