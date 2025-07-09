@@ -1,0 +1,71 @@
+/* Base Reset and Setup */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Cell Styling */
+td {
+  width: 300px;
+  height: 150px;
+  background-color: #ffffff;
+  border: 1px solid #e1e4e8;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.4rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect */
+td:hover {
+  background-color: #2a9d8f;
+  transform: scale(1.03);
+}
+
+/* Time Text Styling */
+.time-text {
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: opacity 0.3s ease;
+}
+
+td:hover .time-text {
+  opacity: 0.15;
+  color: #fff;
+}
+
+/* Hover Message Styling */
+.hi-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+}
+
+td:hover .hi-message {
+  opacity: 1;
+}
+

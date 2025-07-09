@@ -1,0 +1,127 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Layout Container */
+.container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Date Section Styling */
+.date-section {
+    flex: 1;
+    max-height: 320px;
+    overflow-y: auto;
+    border: 1px solid #dce1e7;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.date {
+    background-color: #2e86de;
+    color: white;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Section Styling */
+.form-section {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #dce1e7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    animation: fadeInForm 1s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeInForm {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+/* Input Date Field */
+form input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b0bec5;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Button Styling */
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #219150;
+    transform: translateY(-2px);
+}
+
+form button:active {
+    background-color: #1a7943;
+    transform: scale(0.98);
+}
+
+/* Utility Class for Screen Reader Accessibility */
+.visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
