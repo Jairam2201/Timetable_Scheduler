@@ -4,7 +4,7 @@ Django settings for project_1 project.
 
 import os
 from pathlib import Path
-import dj_database_url
+
 import pymysql
 pymysql.install_as_MySQLdb()
 
@@ -61,10 +61,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project_1.wsgi.application'
 
-#  Database
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('MYSQLDATABASE'),
+        'USER': os.environ.get('MYSQLUSER'),
+        'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+        'HOST': os.environ.get('MYSQLHOST'),
+        'PORT': os.environ.get('MYSQLPORT', '3306'),  # default MySQL port
+    }
 }
+
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
