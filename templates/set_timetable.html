@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable with Timings</title>
+    <link rel="stylesheet" href="{% static 'set_timetable.css' %}">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Date Display -->
+      
+        <div class="date">
+            <h1>{{ a }}</h1>
+            </div>
+            <!-- Timings Section -->
+<form method="POST" {% if b %} action="edit_work" {%else%}action="save_work" {%endif%}>
+    {% csrf_token %}
+    <div class="timing-section">
+        <!-- Timing Box 1 -->
+        <div class="timing-wrapper">
+            <input type="checkbox" id="timing1" name="timing1" class="timing-checkbox"/>
+            <label for="timing1" class="timing-box">
+                <span>9:00 AM - 10:30 AM</span>
+            </label>
+            <div class="line"></div>
+            <div class="message-box">
+                <input type="text" name="work_9_10_30" placeholder="Enter your work for 9:00 AM - 10:30 AM..." {% if b %}   value="{{ b.one }}" {% endif %}>
+            </div>
+        </div>
+
+        <!-- Timing Box 2 -->
+        <div class="timing-wrapper">
+            <input type="checkbox" id="timing2" name="timing2" class="timing-checkbox"/>
+            <label for="timing2" class="timing-box">
+                <span>10:30 AM - 12:00 PM</span>
+            </label>
+            <div class="line"></div>
+            <div class="message-box">
+                <input type="text" name="work_10_30_12" placeholder="Enter your work for 10:30 AM - 12:00 PM..." {% if b %}  value="{{ b.two }}" {% endif %}>
+            </div>
+        </div>
+
+        <!-- Timing Box 3 -->
+        <div class="timing-wrapper">
+            <input type="checkbox" id="timing3" name="timing3" class="timing-checkbox"/>
+            <label for="timing3" class="timing-box">
+                <span>1:30 PM - 3:00 PM</span>
+            </label>
+            <div class="line"></div>
+            <div class="message-box">
+                <input type="text" name="work_12_1_30" placeholder="Enter your work for 12:00 PM - 1:30 PM..." {% if b %}  value="{{ b.three }}" {% endif %}>
+            </div>
+        </div>
+
+        <!-- Timing Box 4 -->
+        <div class="timing-wrapper">
+            <input type="checkbox" id="timing4" name="timing4" class="timing-checkbox"/>
+            <label for="timing4" class="timing-box">
+                <span>3:00 PM - 4:30 PM</span>
+            </label>
+            <div class="line"></div>
+            <div class="message-box">
+                <input type="text" name="work_1_30_3" placeholder="Enter your work for 1:30 PM - 3:00 PM..." {% if b %}  value="{{ b.four }}" {% endif %}>
+            </div>
+        </div>
+
+        <!-- Timing Box 5 -->
+        <div class="timing-wrapper">
+            <input type="checkbox" id="timing5" name="timing5" class="timing-checkbox"/>
+            <label for="timing5" class="timing-box">
+                <span>4:30 PM - 6:00 PM</span>
+            </label>
+            <div class="line"></div>
+            <div class="message-box">
+                <input type="text" name="work_3_4_30" placeholder="Enter your work for 3:00 PM - 4:30 PM..." {% if b %}  value="{{ b.five }}" {% endif %}>
+            </div>
+        </div>
+
+        <!-- Timing Box 6 -->
+        <div class="timing-wrapper">
+            <input type="checkbox" id="timing6" name="timing6" class="timing-checkbox"/>
+            <label for="timing6" class="timing-box">
+                <span>6:30 PM - 8:00 PM</span>
+            </label>
+            <div class="line"></div>
+            <div class="message-box">
+                <input type="text" name="work_4_30_6" placeholder="Enter your work for 4:30 PM - 6:00 PM..."  {% if b %}  value="{{ b.six }}" {% endif %}>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Save</button>
+    </div>
+</form>
+
+
+      
+      
+
+    </div>
+
+</body>
+</html>
