@@ -3,23 +3,22 @@ Django settings for project_1 project.
 """
 
 import os
+import dj_database_url
 from pathlib import Path
-
 import pymysql
+
+# MySQL support
 pymysql.install_as_MySQLdb()
 
-# Build paths inside the project
+# Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# Security
 SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-key-for-dev-only')
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.railway.app,127.0.0.1,localhost').split(',')
 
-ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost']
-
-# Application definition
+# Installed apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -27,12 +26,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_1',
+    'app_1',  # your app
 ]
 
+# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ Added for static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # static file support
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -41,8 +41,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# URLs and WSGI
 ROOT_URLCONF = 'project_1.urls'
+WSGI_APPLICATION = 'project_1.wsgi.application'
 
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -59,21 +62,10 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project_1.wsgi.application'
-
-
+# Database (via DATABASE_URL from Railway)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQLDATABASE'),
-        'USER': os.environ.get('MYSQLUSER'),
-        'PASSWORD': os.environ.get('MYSQLPASSWORD'),
-        'HOST': os.environ.get('MYSQLHOST'),
-        'PORT': os.environ.get('MYSQLPORT', '3306'),  # default MySQL port
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
-
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -89,15 +81,15 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-#  Static files
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # changed from 'assets' for convention
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # ✅ Required for WhiteNoise
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Primary key field type
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
