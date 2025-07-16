@@ -1,0 +1,192 @@
+/* Base Reset and Setup */
+body {
+  margin: 0;
+  padding: 0;
+  background: #eef2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar stays at the top */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Home button with icon */
+.home-btn {
+  background-color: #28425e;
+  color: white;
+  margin-top:20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.home-btn i {
+  font-size: 16px;
+}
+
+.home-btn:hover {
+  background-color: #1f4164;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.home-btn:active {
+  transform: scale(0.97);
+  background-color: #283747;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Table wrapper for centering */
+
+.table-container {
+  flex: 1; /* Take remaining height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* Cell Styling */
+td {
+  width: 300px;
+  height: 150px;
+  background-color: #ffffff;
+  border: 1px solid #e1e4e8;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.4rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect */
+td:hover {
+  background-color: #2a9d8f;
+  transform: scale(1.03);
+}
+
+/* Time Text Styling */
+.time-text {
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: opacity 0.3s ease;
+}
+
+td:hover .time-text {
+  opacity: 0.15;
+  color: #fff;
+}
+
+/* Hover Message Styling */
+.hi-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+td:hover .hi-message {
+  opacity: 1;
+}
+
+/* Responsive Table */
+@media (max-width: 1024px) {
+  td {
+    width: 260px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  tr {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  td {
+    width: 90vw;
+    height: 130px;
+    font-size: 1.2rem;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .hi-message {
+    font-size: 1.1rem;
+  }
+
+  .time-text {
+    font-size: 1rem;
+  }
+
+  .top-bar {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  td {
+    width: 85vw;
+    height: 110px;
+    font-size: 1rem;
+  }
+
+  .hi-message {
+    font-size: 1rem;
+  }
+
+  .time-text {
+    font-size: 0.95rem;
+  }
+
+  .home-btn {
+    font-size: 15px;
+    padding: 8px 14px;
+  }
+}
