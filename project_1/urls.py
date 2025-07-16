@@ -17,14 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import forgot_password,password_reset,view,time_table,signup,login,user_login,user_signup,date,edit,insert,save_work,sample,check,edit_work,delete,del_date
-from django.views.generic import RedirectView
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("register/",signup,name="signup"),
-    path('', RedirectView.as_view(url='/register/', permanent=False)),
+    path("",signup,name="signup"),
     path("user_signup",user_signup,name="user_signup"),
     path("login",login,name="login"),
     path("user_login",user_login,name="user_login"),
